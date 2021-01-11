@@ -1,15 +1,15 @@
-class Professor {
+const User = require('./user');
+class Professor extends User{
   constructor(name, surname, yearOfAdm) {
-    this.name = name;
-    this.surname = surname;
-    this.yearOfAdm = yearOfAdm
-  }
-
-  getFullName() {
-    return this.name + ' ' + this.surname;
+    super(name, surname, yearOfAdm)
   }
 
   getWorkerYears() {
-    return new Date().getFullYear() - this.yearOfAdm;
+    return super.getYear();
   }
 }
+
+let a = new Professor ('Adam', 'Sandler', 2019)
+console.log(a);
+console.log(a.getFullName());
+console.log(a.getWorkerYears());
